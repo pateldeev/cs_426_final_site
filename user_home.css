@@ -1,0 +1,36 @@
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+.centered .child {
+  /* Center entire body */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.customButton {
+ color: #fff;
+ font-size: 0;
+ width: 135px;
+ height: 60px;
+ border: none;
+ margin: 0;
+ padding: 0;
+}
+
+#existing_jobs_table {
+    border: 1px solid black;
+}
+
+td {
+    padding: 10px;
+}
+
+tr.table_header th {
+  border-bottom: 1px solid black;
+}

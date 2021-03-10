@@ -1,0 +1,14 @@
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+body{ 
+    font: 14px sans-serif; 
+}
+
+.wrapper{ 
+    width: 350px; padding: 20px; 
+}

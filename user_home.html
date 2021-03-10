@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+
+        <title id="page_title">Home: </title>
+        <link rel="stylesheet" href="user_home.css">
+        <link rel="stylesheet" href="index.css" type="text/css"/>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="/scripts/user_home.js"></script>
+    </head>
+    <body>
+        <a href='login/logout.php' id='logout_link'>Log out</a>
+
+        <div class="centered">
+            <div class="child">
+                <img src="logopng.png" style="width:450px;height:550px;">
+                <h1 id="existing_header">Existing Jobs for: </h1>
+
+                <table id="existing_jobs_table">
+                    <tr class="table_header">
+                        <th>Job ID</th> 
+                        <th>Date Created</th> 
+                        <th>Status</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br><br>
+        <div class="centered">
+            <div class="child">
+                <h1 id="new_header">Create New Job</h1>
+                <!--<form method="POST" action="local/local_save_input.php" enctype="multipart/form-data">-->
+                <form method="POST" action="https://68.227.63.30:99/local/local_save_input.php" enctype="multipart/form-data">
+                    <p class="p2"> <label> Choose input files: </label> </p>
+                    <input type="file" name="file[]" multiple required/>
+                    <br><br>
+                    <label> User: </label> 
+                    <input id="create_form_user"  type="text" name="user" required readonly/>
+                    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                    <input type="submit" class ="myButton" name="submit" value="Upload for training" />
+                </form>
+            </div>
+        </div>
+        <br><br>
+        <script>
+            validate_user();
+            populate_jobs_table();
+        </script>
+    </body>
+</html>

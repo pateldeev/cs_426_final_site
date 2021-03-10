@@ -1,0 +1,38 @@
+https://freedb.tech/login.php
+
+un: dkp10000@hotmail.com
+pw: S...1!
+
+Remote Host: freedb.tech
+Database Name: freedbtech_musicaidb
+Username: freedbtech_db
+Password: db
+
+
+FreeHosting
+Remote Host: localhost
+Database Name: musicaia_db
+Username: musicaia_db
+Password: db24!
+
+
+SETUP
+mysql -h freedb.tech -u freedbtech_db -p
+  USE freedbtech_musicaidb
+  
+CREATE TABLE Users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE Jobs (
+    id VARCHAR(16) NOT NULL PRIMARY KEY,
+    user INT NOT NULL,
+    created DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('Created','Queued','Running','Done','Archived','Error') DEFAULT 'Created',
+    output TEXT,
+    FOREIGN KEY (user) REFERENCES Users(id)
+);
+
