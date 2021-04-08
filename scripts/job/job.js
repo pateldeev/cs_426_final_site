@@ -65,7 +65,7 @@ function link_status_file(status_fn, read_file = true, refill = true) {
                     alert('Got NodeJS error: ' + data['err_msg']);
                     return;
                 }
-
+                
                 if (data['status'] !== $("#label_status").val()) {
                     $("#label_status").val(data['status']);
                     if (data['status'] === 'Done') {

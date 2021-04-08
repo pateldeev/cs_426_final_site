@@ -7,7 +7,6 @@ function validate_user() {
     }
     usr = usr[0];
     document.getElementById('page_title').innerHTML += usr;
-    document.getElementById('welcome_banner').innerHTML += usr;
-    document.getElementById('button_generate_music').href += usr;
-    document.getElementById('button_exisiting_jobs').href += usr;
+    document.getElementById('create_form_user').value = usr;
+    document.getElementById('existing_jobs_link').href += usr;
 }

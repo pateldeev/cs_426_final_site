@@ -1,0 +1,33 @@
+body {
+    background-image: url('../background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+.centered .child {
+    /* Center entire body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#logout_link {
+    position: fixed;
+    top: 1%;
+    right: 1%;
+    font-size: x-large;
+}
+
+.p1 {
+    font-family: "Times New Roman", Times, serif;
+}
+
+.p2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.p3 {
+    font-family: "Lucida Console", "Courier New", monospace;
+}

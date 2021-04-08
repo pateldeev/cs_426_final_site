@@ -16,7 +16,7 @@ function endsWith($str, $search) {
 }
 
 function handleError($err) {
-    die($err . '<br><br><a href="http://musicai.app/user_home.html">Go back to dashboard</a>');
+    die($err . '<br><br><a href="https://musicai.app/login/login.php">Go back to dashboard</a>');
 }
 ?>
 
@@ -131,7 +131,7 @@ function handleError($err) {
         echo '<br>';
         echo '<p> Input files have been accepted!</p>';
         echo '<br>';
-        $job_url = 'https://musicai.app/job/job_home.html?job=' . $job;
+        $job_url = 'https://musicai.app/job/job.html?job=' . $job;
         echo "<a href='{$job_url}'>Launch Training Job</a>";
         ?>
     </body>

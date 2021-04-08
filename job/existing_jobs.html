@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -12,31 +13,34 @@
         <link rel="manifest" href="/favicon/site.webmanifest">
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
 
-        <title id="page_title">Home: </title>
-        <link rel="stylesheet" href="user_home.css" type="text/css"/>
-        
+        <title id="page_title">Existing Job: </title>
+        <link rel="stylesheet" href="existing_jobs.css">
+
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="/scripts/user_home.js"></script>
+        <script type="text/javascript" src="/scripts/job/existing_jobs.js"></script>
     </head>
     <body>
-        <a href= "login/logout.php" id='logout_link'>Log out</a>
+        <a href='../login/logout.php' id='logout_link'>Log out</a>
+        <div class="centered">
+            <div class="child">
+                <img src="../logopng.png" style="width:450px;height:550px;">
+                <h1 id="existing_header">Existing Jobs for: </h1>
 
-        <div class="centered">
-            <div class="child">
-                <img src="logopng.png" style="width:400px;height:500px;">
-            </div>
-            <p id="welcome_banner"> Welcome. You are logged in as: </p>
-        </div>
-        <div class="centered">
-            <div class="child">
-                <a id="button_generate_music" href="job/create_job.html?user=" class="myButton">Generate Music</a>
-                <a id="button_exisiting_jobs" href="job/existing_jobs.html?user=" class="myButton">Existing Jobs</a>
-                <a id="button_youtube_upload" href="https://google.com" class="myButton">Upload to Youtube</a>
+                <table id="existing_jobs_table">
+                    <tr class="table_header">
+                        <th>Job ID</th> 
+                        <th>Date Created</th> 
+                        <th>Status</th>
+                    </tr>
+                </table>
             </div>
         </div>
+        <a id="create_link" href="create_job.html?user=">Create Job</a>
         <br><br>
+        <a href="../login/login.php">User Home</a>
         <script>
-            validate_user();
+            const user_name = validate_user();
+            populate_jobs_table(user_name);
         </script>
     </body>
 </html>
