@@ -5,7 +5,7 @@ session_start();
 $home_link = "location: ../user_home.html?user=";
 
 // Check if the user is already logged in, if yes then redirect to home page.
-if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+if (!$_GET['nocache'] && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header($home_link . $_SESSION["username"]);
     exit;
 }
