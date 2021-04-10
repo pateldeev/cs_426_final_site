@@ -24,12 +24,14 @@
 
         <div class="centered">
             <div class="child">
+				<a href="../login/login.php">
                 <img src="../logopng.png" style="width:450px;height:550px;">
             </div>
         </div>
+			</a>
         <div class="centered">
             <div class="child">
-                <h1>TODO: Add description of the process and what kinds of files are expected.</h1>
+                <h1>Music Generation: Input Midi files to generate your song.</h1>
                 <form method="POST" action="https://68.227.63.30:99/local/local_save_input.php" enctype="multipart/form-data">
                     <p class="p2"> <label> Choose input files: </label> </p>
                     <input type="file" name="file[]" multiple required/>
@@ -38,11 +40,11 @@
                     <input id="create_form_user"  type="text" name="user" required readonly/>
                     <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <input type="submit" class ="myButton" name="submit" value="Upload for training" />
+                    <input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
                 </form>
+				 <a id="existing_jobs_link" class ="myButton" href="existing_jobs.html?user=">Existing Jobs</a>
             </div>
         </div>
-        <a id="existing_jobs_link" href="existing_jobs.html?user=">Existing Jobs</a>
         <br><br>
         <a href="../login/login.php">User Home</a>
         <script>
