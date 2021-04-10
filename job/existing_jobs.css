@@ -12,6 +12,38 @@ body {
     justify-content: center;
     align-items: center;
 }
+.myButton:hover {
+    background-color:#000000;
+}
+
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+.myButton {
+    box-shadow:inset 0px 1px 0px 0px #000000;
+    background-color:#000000;
+    border-radius:16px;
+    border:1px solid #000000;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:14px;
+    font-weight:bold;
+    padding:8px 53px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    white-space: normal;
+    margin: 10px;
+    table-layout: fixed;
+    word-wrap: break-word;
+	width:240px;
+ 	text-align:center;
+	margin-left: 40px
+
+}
 
 #logout_link {
     position: fixed;
