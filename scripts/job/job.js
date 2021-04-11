@@ -65,14 +65,14 @@ function link_status_file(status_fn, read_file = true, refill = true) {
                     alert('Got NodeJS error: ' + data['err_msg']);
                     return;
                 }
-                
+
                 if (data['status'] !== $("#label_status").val()) {
                     $("#label_status").val(data['status']);
                     if (data['status'] === 'Done') {
-                        setTimeout(function (fn) {
+                        setTimeout(function () {
                             alert("Job is Done!");
-                            handle_job_done(fn);
-                        }, 1000, status_fn);
+                            location.reload();
+                        }, 1200);
                     }
                 }
 
@@ -90,15 +90,14 @@ function link_status_file(status_fn, read_file = true, refill = true) {
                     if (data['status'] === "Queued")
                         callback_ts = 1000;
                     setTimeout(link_status_file, callback_ts, status_fn, false, false);
-                } else if ($("#label_status").val() === "Done" && !refill) {
-                    setTimeout(link_status_file, callback_ts, status_fn, true, true);
                 }
             }, 'json');
 }
 
 function start_job() {
-    $("#start_button").hide();
-    $.get('https://68.227.63.30:3000/start_job', {job_id: $("#label_job").val(), user: $("#label_user").val()},
+    $("#job_start_div").hide();
+    $.get('https://68.227.63.30:3000/start_job',
+            {job_id: $("#label_job").val(), user: $("#label_user").val(), num_epochs: $("#start_job_epochs").val(), output_size: $("#start_job_outsize").val()},
             function (data) {
                 if (data['err']) {
                     alert('Could not start job: ' + data['err_msg']);
@@ -150,7 +149,7 @@ function populate_upload_result_link(result_fn) {
 }
 
 function handle_job_done(status_fn) {
-    const result_fn = status_fn.replace('.log', '.mp3');
+    const result_fn = status_fn.replace('_log.log', '_output.mp3');
     $("#upload_result_button").show();
 
     if (is_uploaded(result_fn)) {

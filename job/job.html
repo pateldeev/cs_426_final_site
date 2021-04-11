@@ -31,7 +31,13 @@
         <label> Status: </label>
         <input id="label_status" type="text" readonly/>
         <br><br><br>
-        <button id="start_button" onclick="start_job();" hidden>Start Job</button>
+        <div id='job_start_div' hidden>
+            <label for="start_job_epochs">Number of training epochs: </label><input type="number" id="start_job_epochs" name='start_job_epochs' min="1" max="1000" value="100">
+            <br>
+            <label for="start_job_outsize">Number of notes in output song: </label><input type="number" id="start_job_outsize" name='start_job_outsize' min="1" max="500" value="50">
+            <br>
+            <button id="start_button" onclick="start_job();">Start Job</button>
+        </div>
         <br><br>
         <button id="upload_result_button" hidden disabled>Upload Job Result</button>
         <p id="uploaded_result_success" hidden> Result Uploaded: </p>
@@ -54,7 +60,7 @@
             if (!job_status) {
                 window.location.replace("../login/login.php");
             } else if (job_status === 'Created') {
-                $("#start_button").show();
+                $("#job_start_div").show();
             } else if (job_status === 'Done' && status_fn) {
                 handle_job_done(status_fn);
             }

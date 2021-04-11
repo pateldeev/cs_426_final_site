@@ -1,16 +1,18 @@
 <?php
 
-function OpenCon() {
-    $dbhost = "127.0.0.2";
-    $db = "musicaia_db";
-    $dbuser = "musicaia_db";
-    $dbpass = "db24!";
+function OpenCon($ml_server_db = False) {
+    if ($ml_server_db) {
+        $dbhost = "freedb.tech";
+        $db = "freedbtech_musicaidb";
+        $dbuser = "freedbtech_db";
+        $dbpass = "db";
+    } else {
+        $dbhost = "127.0.0.2";
+        $db = "musicaia_db";
+        $dbuser = "musicaia_db";
+        $dbpass = "db24!";
+    }
 
-    $dbhost = "freedb.tech";
-//    $dbhost = "3.101.16.113";
-    $db = "freedbtech_musicaidb";
-    $dbuser = "freedbtech_db";
-    $dbpass = "db";
     $conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n" . $conn->error);
 
     // Check connection

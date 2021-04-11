@@ -5,14 +5,44 @@ session_start();
 $home_link = "location: ../user_home.html?user=";
 
 // Check if the user is already logged in, if yes then redirect to home page.
-if (!$_GET['nocache'] && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-    header($home_link . $_SESSION["username"]);
-    exit;
+if (isset($_GET["nocache"]) && $_GET['nocache']) {
+    // Don't check cache.
+    error_log('NoCache');
+} else {
+    // Check cache to see if user previously logged in.
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+        header($home_link . $_SESSION["username"]);
+        exit;
+    }
+
+    // Check login history to see if user is logged in.
+    $login_log = fopen("login_log.log", 'r+');
+    $cursor = -1;
+    fseek($login_log, $cursor, SEEK_END);
+    $char = fgetc($login_log);
+    while ($char === "\n" || $char === "\r") {
+        fseek($login_log, $cursor--, SEEK_END);
+        $char = fgetc($f);
+    }
+    $last_log_line = '';
+    while ($char !== false && $char !== "\n" && $char !== "\r") {
+        $last_log_line = $char . $last_log_line;
+        fseek($login_log, $cursor--, SEEK_END);
+        $char = fgetc($login_log);
+    }
+    fclose($login_log);
+
+    if (substr_compare($last_log_line, 'login event: ', 0, strlen('login event: ')) === 0) {
+    $last_log_line = substr($last_log_line, 0, -1);
+        header($home_link . substr($last_log_line, strlen('login event: ')));
+        exit;
+    }
 }
+
 
 // Start database connection.
 require_once "../db/db_connection.php";
-$conn = OpenCon();
+$conn = OpenCon(true);
 
 $username = $password = "";
 $username_err = $password_err = "";
@@ -65,6 +95,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $username;
 
+                            // Log login history.
+                            $login_log = fopen("login_log.log", "a") or die("Unable to login log!");
+                            fwrite($login_log, 'login event: ' . $username . PHP_EOL);
+                            fclose($login_log); 
+
+
                             // Redirect user to home page.
                             header($home_link . $_SESSION["username"]);
                         } else {
@@ -96,9 +132,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta charset="UTF-8">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
-        
+
         <title>Login</title>
-        
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">

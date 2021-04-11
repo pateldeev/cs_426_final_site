@@ -2,7 +2,7 @@
 <?php
 $local_dir_head = '/home/dp/NetBeansProjects/musicAILocalSite/';
 $local_dir_tail = 'data_files/';
-$supported_extensions = array(".mid", '.midi');
+$supported_extensions = array(".mid", ".mp3", ".wav");
 ?>
 
 <?php
@@ -69,7 +69,7 @@ function handleError($err) {
 
         # Get Database Connection.
         require_once "../db/db_connection.php";
-        $conn = OpenCon();
+        $conn = OpenCon(true);
 
         # Verify user is real.
         $q = "SELECT id FROM `Users` WHERE username='{$usr}'";
@@ -117,7 +117,7 @@ function handleError($err) {
         for ($i = 0; $i < count($_FILES['file']['name']); $i++) {
             $f_n = $_FILES['file']['name'][$i];
             $f_tmp = $_FILES['file']['tmp_name'][$i];
-            $f_n_new = $job . '_' . str_pad(strval($i), 2, '0', STR_PAD_LEFT);
+            $f_n_new = $job . '_input_' . str_pad(strval($i), 2, '0', STR_PAD_LEFT) . '.' . pathinfo($f_n, PATHINFO_EXTENSION);
 
             if (move_uploaded_file($f_tmp, $local_dir . $f_n_new)) {
                 echo 'File {' . $f_n . '} has been uploaded as {' . $local_dir_tail . $f_n_new . '}';
