@@ -2,47 +2,35 @@
 // Initialize the session.
 session_start();
 
-$home_link = "location: ../user_home.html?user=";
-
-// Check if the user is already logged in, if yes then redirect to home page.
-if (isset($_GET["nocache"]) && $_GET['nocache']) {
-    // Don't check cache.
-    error_log('NoCache');
-} else {
-    // Check cache to see if user previously logged in.
-    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
-        header($home_link . $_SESSION["username"]);
-        exit;
-    }
-
-    // Check login history to see if user is logged in.
-    $login_log = fopen("login_log.log", 'r+');
-    $cursor = -1;
-    fseek($login_log, $cursor, SEEK_END);
-    $char = fgetc($login_log);
-    while ($char === "\n" || $char === "\r") {
-        fseek($login_log, $cursor--, SEEK_END);
-        $char = fgetc($f);
-    }
-    $last_log_line = '';
-    while ($char !== false && $char !== "\n" && $char !== "\r") {
-        $last_log_line = $char . $last_log_line;
-        fseek($login_log, $cursor--, SEEK_END);
-        $char = fgetc($login_log);
-    }
-    fclose($login_log);
-
-    if (substr_compare($last_log_line, 'login event: ', 0, strlen('login event: ')) === 0) {
-    $last_log_line = substr($last_log_line, 0, -1);
-        header($home_link . substr($last_log_line, strlen('login event: ')));
-        exit;
-    }
-}
-
-
 // Start database connection.
 require_once "../db/db_connection.php";
 $conn = OpenCon(true);
+
+$home_link = "Location: ../user_home.html?user=";
+
+$is_self_call = isset($_POST['isself']);
+$use_cache = !$is_self_call && !(isset($_GET['nocache']) && $_GET['nocache'] == true);;
+
+// Check if user is already logged in using global session variables.
+if ($use_cache && isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+    header($home_link . $_SESSION["username"]);
+    exit;
+}
+
+// Check if user is logged in using login log.
+if ($use_cache) {
+    $q = "SELECT U.id AS uid, U.username AS un FROM UserLogins UL INNER JOIN Users U on U.id = UL.user WHERE DATE(UL.login_time)=DATE(NOW())";
+    $q_r = Query($conn, $q);
+    if ($q_r->num_rows === 1) {
+        $q_r = $q_r->fetch_row();
+        $_SESSION["loggedin"] = true;
+        $_SESSION["id"] = $q_r[0];
+        $_SESSION["username"] = $q_r[1];
+
+        // Redirect user to home page.
+        header($home_link . $_SESSION["username"]);
+    }
+}
 
 $username = $password = "";
 $username_err = $password_err = "";
@@ -84,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Check if username exists, if yes then verify password.
                 if (mysqli_stmt_num_rows($stmt) == 1) {
                     // Bind result variables.
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $user_id, $username, $hashed_password);
                     if (mysqli_stmt_fetch($stmt)) {
                         if (password_verify($password, $hashed_password)) {
                             // Password is correct, so start a new session.
@@ -92,14 +80,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             // Store data in session variables.
                             $_SESSION["loggedin"] = true;
-                            $_SESSION["id"] = $id;
+                            $_SESSION["id"] = $user_id;
                             $_SESSION["username"] = $username;
 
                             // Log login history.
-                            $login_log = fopen("login_log.log", "a") or die("Unable to login log!");
-                            fwrite($login_log, 'login event: ' . $username . PHP_EOL);
-                            fclose($login_log); 
-
+                            $sql_q = "INSERT INTO `UserLogins` (`device`, `user`) VALUES ('{$_SERVER['REMOTE_ADDR']}', {$user_id})";
+                            Query($conn, $sql_q);
 
                             // Redirect user to home page.
                             header($home_link . $_SESSION["username"]);
@@ -158,6 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <input type="password" name="password" class="form-control">
                     <span class="help-block"><?php echo $password_err; ?></span>
                 </div>
+                <input type="hidden" name="isself" value="true" />
                 <div class="form-group">
                     <input type="submit" class="btn btn-primary" value="Login">
                 </div>

@@ -1,18 +1,18 @@
 <?php
 
-// Initialize the session.
-session_start();
+require_once "../db/db_connection.php";
+$conn = OpenCon(true);
+
+// Mark user as logged out.
+$sql_q = "TRUNCATE TABLE `UserLogins`";
+Query($conn, $sql_q);
 
 // Unset all of the session variables.
+session_start();
 $_SESSION = array();
-
-// Destroy the session.
 session_destroy();
 
-$login_log = fopen("login_log.log", "a") or die("Unable to login log!");
-fwrite($login_log, 'logout event' . PHP_EOL);
-fclose($login_log);
 
 // Redirect to home page
-header("location: ../index.html");
+header("Location: ../index.html");
 ?>

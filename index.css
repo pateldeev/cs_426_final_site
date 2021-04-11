@@ -17,28 +17,6 @@ form {
     display: flex;
 }
 
-.myFormButton {
-    box-shadow:inset 0px 1px 0px 0px #000000;
-    background-color:#000000;
-    border-radius:16px;
-    border:1px solid #000000;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:14px;
-    font-weight:bold;
-    padding:8px 53px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #000000;
-    white-space: normal;
-    margin: 10px;
-    table-layout: fixed;
-    width:350px;
-    text-align:center;
-}
-
-
 .myButton {
     box-shadow:inset 0px 1px 0px 0px #000000;
     background-color:#000000;
