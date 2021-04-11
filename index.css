@@ -14,7 +14,7 @@ body {
 }
 
 form {
-  display: flex;
+    display: flex;
 }
 
 .myFormButton {
@@ -34,9 +34,8 @@ form {
     white-space: normal;
     margin: 10px;
     table-layout: fixed;
-	width:350px;
- 	text-align:center;
-
+    width:350px;
+    text-align:center;
 }
 
 
@@ -58,9 +57,8 @@ form {
     margin: 10px;
     table-layout: fixed;
     word-wrap: break-word;
-	width:250px;
- 	text-align:center;
-
+    width:250px;
+    text-align:center;
 }
 
 .myButton:hover {
@@ -77,5 +75,5 @@ td {
 }
 
 h1, h2 {
-  font-family: Arial, Helvetica, sans-serif ;
+    font-family: Arial, Helvetica, sans-serif ;
 }
