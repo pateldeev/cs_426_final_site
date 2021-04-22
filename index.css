@@ -55,3 +55,13 @@ td {
 h1, h2 {
     font-family: Arial, Helvetica, sans-serif ;
 }
+
+#helpText {
+                width: auto;
+                height: auto;
+				font-family: Arial;
+                
+}
+.inlineDiv{
+margin-left:2rem;
+}
