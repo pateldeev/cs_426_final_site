@@ -13,7 +13,7 @@ function validate_user() {
 }
 
 function populate_jobs_table(usr_name) {
-    $.get('https://68.227.63.30:3000/jobs_associated_to_user', {user: usr_name},
+    $.get('https://98.182.226.187:3000/jobs_associated_to_user', {user: usr_name},
             function (data) {
                 if(data['err']){
                     alert('NodeJS error in getting jobs associated with user: ' + data['err_msg']);

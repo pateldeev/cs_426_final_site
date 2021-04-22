@@ -16,7 +16,7 @@ function validate_job() {
     var status_fn = null;
 
     $.ajaxSetup({async: false});
-    $.get('https://68.227.63.30:3000/job', {job_id: $("#label_job").val()},
+    $.get('https://98.182.226.187:3000/job', {job_id: $("#label_job").val()},
             function (data) {
                 if (data['err']) {
                     alert('NodeJS error in validating job: ' + data['err_msg']);
@@ -40,7 +40,7 @@ function delete_job() {
         return;
     }
 
-    $.get('https://68.227.63.30:3000/delete_job', {job_id: $("#label_job").val()},
+    $.get('https://98.182.226.187:3000/delete_job', {job_id: $("#label_job").val()},
             function (data) {
                 if (data !== "Success") {
                     alert('Failed to delete: ' + data);
@@ -53,7 +53,7 @@ function delete_job() {
 function link_status_file(status_fn, read_file = true, refill = true) {
     var t = document.getElementById('job_output_table');
 
-    $.get('https://68.227.63.30:3000/model_status',
+    $.get('https://98.182.226.187:3000/model_status',
             {
                 job_id: $("#label_job").val(),
                 job_out_file: status_fn,
@@ -96,7 +96,7 @@ function link_status_file(status_fn, read_file = true, refill = true) {
 
 function start_job() {
     $("#job_start_div").hide();
-    $.get('https://68.227.63.30:3000/start_job',
+    $.get('https://98.182.226.187:3000/start_job',
             {job_id: $("#label_job").val(), user: $("#label_user").val(), num_epochs: $("#start_job_epochs").val(), output_size: $("#start_job_outsize").val()},
             function (data) {
                 if (data['err']) {
@@ -112,7 +112,7 @@ function start_job() {
 function is_uploaded(result_fn) {
     var ret;
     $.ajaxSetup({async: false});
-    $.get('https://68.227.63.30:3000/is_uploaded', {fn: result_fn},
+    $.get('https://98.182.226.187:3000/is_uploaded', {fn: result_fn},
             function (data) {
                 if (data === 'Yes') {
                     ret = true;
@@ -125,7 +125,7 @@ function is_uploaded(result_fn) {
 }
 
 function upload_result(result_fn) {
-    $.get('https://68.227.63.30:3000/upload_result', {fn: result_fn},
+    $.get('https://98.182.226.187:3000/upload_result', {fn: result_fn},
             function (data) {
                 if (data['err']) {
                     alert('Could not upload result: ' + data['err_msg']);
