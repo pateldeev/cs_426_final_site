@@ -10,7 +10,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
         <link rel="manifest" href="/favicon/site.webmanifest">
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
         <title>Home</title>
 
@@ -30,28 +30,28 @@
                 </h1>
                 <a href="/login/login.php?nocache=true" class="myButton">Accept Terms & Enter Application</a>
                 <a href="https://projectmusicai.wordpress.com/about/" class="myButton">Learn more about MusicAI</a>
-				<div style="position: relative;">
-                	<a href="https://98.182.226.187:99/local/accept_certificate.html" class="myButton">Verify Connection</a>
-                	<button type="button" onclick="HelpButton()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
-				</div>
-                
+                <div style="position: relative;">
+                    <a href="https://98.182.226.187:99/local/accept_certificate.html" class="myButton">Verify Connection</a>
+                    <button type="button" onclick="HelpButton()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
+                </div>
+
                 <div id="helpText" style="display: none;">
                     For everything to work smoothly, please click "Verify Connection" at least one time per device to ensure a proper connection to our AI backend is established.
                 </div>
             </div>
         </div>
-		
+
         <br><br>
     </body>
 </html>
 
 <script>
-			function HelpButton() {
-                var x = document.getElementById("helpText");
-                if (x.style.display === "none") {
-                    x.style.display = "initial";
-                } else {
-                    x.style.display = "none";
-                }
-            }
+    function HelpButton() {
+        var x = document.getElementById("helpText");
+        if (x.style.display === "none") {
+            x.style.display = "initial";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>

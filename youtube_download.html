@@ -17,22 +17,19 @@
         <link rel="stylesheet" href="youtube_download.css" type="text/css"/>
 
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="/scripts/youtube_download.js"></script>
-    
-        </head>
+        <script type="text/javascript" src="scripts/youtube_download.js"></script>
 
-        <body>
-            <h1 class='heading'>YouTube Download</h1>
-            <input class='URL-input' id='youtube_link' placeholder='Enter YouTube Link'>
-            
-            <select class='opt'>
-                <option value='mp3'>mp3</option>
-            </select>
+    </head>
 
-            <button onclick="submit_download_request();" >download</button>
-            <script src='./script.js'></script>
-        </body>
+    <body>
+        <h1 class='heading'>YouTube Download</h1>
+        <input class='URL-input' id='youtube_link' placeholder='Enter YouTube Link'>
+        <select class='opt'>
+            <option value='mp3'>mp3</option>
+        </select>
+        <button onclick="submit_download_request();" id='submit_download_request' >download</button>
+        <br><br>
+        <p id='download_status' hidden>Downloading! Please wait!</p>
 
-    </html>
-
- 
+    </body>
+</html>

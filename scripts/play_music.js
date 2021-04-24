@@ -11,8 +11,6 @@ function set_player_src() {
     $("#audio_player").attr('src', fn);
 }
 
-
-
 function post_to_twitter(tweet) {
 
     const urlParams = new URLSearchParams(window.location.search);
@@ -24,12 +22,5 @@ function post_to_twitter(tweet) {
             window.location.href = ('https://98.182.226.187:3000/twitter_verify_complete');
         }, 1000);
 
-    });
-
-
+    }, 'text');
 }
-
-
-
-
-
