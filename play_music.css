@@ -13,3 +13,34 @@ body {
     align-items: center;
 }
 
+.myButton {
+    text-align: center;
+    box-shadow:inset 0px 1px 0px 0px #000000;
+    background-color:#000000;
+    border-radius:30px;
+    border:1px solid #000000;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    font-weight:bold;
+    padding:8px 53px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    white-space: normal;
+    word-wrap: break-word;
+    padding: 15px 25px;
+    margin: 10px;
+    table-layout: fixed;
+    width: 20%;
+}
+
+.myButton:hover {
+    background-color:#000000;
+}
+
+.myButton:active {
+    position:relative;
+    top:1px;
+}
