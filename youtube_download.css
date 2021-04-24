@@ -1,0 +1,14 @@
+body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
+}
+
+.centered .child {
+    /* Center entire body */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
