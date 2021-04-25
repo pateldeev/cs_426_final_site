@@ -57,11 +57,12 @@ h1, h2 {
 }
 
 #helpText {
-                width: auto;
-                height: auto;
-				font-family: Arial;
-                
+    width: auto;
+    height: auto;
+    font-family: Arial;
+
 }
+
 .inlineDiv{
-margin-left:2rem;
+    margin-left:2rem;
 }
