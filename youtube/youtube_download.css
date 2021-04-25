@@ -1,9 +1,10 @@
 body {
-    background-image: url('images/background.jpg');
+    background-image: url('../images/background.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;  
     background-size: cover;
 }
+
 
 .centered .child {
     /* Center entire body */
@@ -13,27 +14,30 @@ body {
     align-items: center;
 }
 
+form {
+    display: flex;
+}
+
 .myButton {
-    text-align: center;
     box-shadow:inset 0px 1px 0px 0px #000000;
     background-color:#000000;
-    border-radius:30px;
+    border-radius:16px;
     border:1px solid #000000;
     display:inline-block;
     cursor:pointer;
     color:#ffffff;
     font-family:Arial;
-    font-size:24px;
+    font-size:14px;
     font-weight:bold;
     padding:8px 53px;
     text-decoration:none;
     text-shadow:0px 1px 0px #000000;
     white-space: normal;
-    word-wrap: break-word;
-    padding: 15px 25px;
     margin: 10px;
     table-layout: fixed;
-    width: 20%;
+    word-wrap: break-word;
+    width:250px;
+    text-align:center;
 }
 
 .myButton:hover {
@@ -45,37 +49,27 @@ body {
     top:1px;
 }
 
-#existing_jobs_table {
-    border: 1px solid black;
-}
-
 td {
     padding: 10px;
 }
 
-.table_header th {
-    border-bottom: 1px solid black;
-}
-
-#logout_link {
-    position: fixed;
-    top: 1%;
-    right: 1%;
-    font-size: x-large;
-}
-
-.p1 {
-    font-family: "Times New Roman", Times, serif;
-}
-
-.p2 {
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.p3 {
-    font-family: "Lucida Console", "Courier New", monospace;
-}
-
 h1, h2 {
     font-family: Arial, Helvetica, sans-serif ;
+}
+
+#helpText {
+    width: auto;
+    height: auto;
+    font-family: Arial;
+
+}
+.inlineDiv{
+    margin-left:2rem;
+}
+
+.submissionfield { 
+    width: 300px; 
+    border: 1px
+        solid #999999; 
+    padding: 5px; 
 }

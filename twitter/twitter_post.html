@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+        <link rel="manifest" href="/favicon/site.webmanifest">
+        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+
+        <title id="page_title">Create Twitter Post</title>
+        <link rel="stylesheet" href="twitter_post.css" type="text/css"/>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script type="text/javascript" src="../scripts/twitter/twitter_post.js"></script>
+
+    </head>
+
+    <body>
+        <div class="centered">
+            <div class="child">
+                <a href="../login/login.php">
+                    <img src="../images/logopng.png" style="width:400px;height:500px;">
+                </a>
+                <button type="button" onclick="twitter_post();" class="myButton">Post to Twitter</button>
+                <b>Customize your tweet:</b>
+                <form>
+                    <input type="text" name="Fname" value="Look at what I created with MusicAi!" id="tweet" size = 50>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
