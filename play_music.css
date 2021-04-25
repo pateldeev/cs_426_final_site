@@ -13,34 +13,102 @@ body {
     align-items: center;
 }
 
-.myButton {
-    text-align: center;
-    box-shadow:inset 0px 1px 0px 0px #000000;
-    background-color:#000000;
-    border-radius:30px;
-    border:1px solid #000000;
+h1 {
+    color: black;
+    font-family:'Montserrat',sans-serif;
+    font-size: 20px;
+}
+
+div.redditabsolute {
+    position: absolute;
+    left: 100px;
+    bottom: 10px;
+  }
+
+div.musicaiabsolute {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+  }
+div.twitterabsolute {
+    position: absolute;
+    left: 180px;
+    bottom: 10px;
+  }
+
+div.youtubeabsolute {
+    position: absolute;
+    left: 270px;
+    bottom: 0px;
+  }
+
+.button{
     display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:16px;
-    font-weight:bold;
-    padding:8px 53px;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #000000;
-    white-space: normal;
-    word-wrap: break-word;
-    padding: 15px 25px;
-    margin: 10px;
-    table-layout: fixed;
-    width: 20%;
+    padding:0.35em 1.2em;
+    border:0.1em solid black;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    font-family:'Roboto',sans-serif;
+    font-weight:300;
+    color:black;
+    text-align:center;
+    transition: all 0.2s;
+    }
+    .button:hover{
+    color:#000000;
+    background-color:#FFFFFF;
+    }
+
+.textborder{
+    border-width: 2px;
+    border-color: black;
 }
 
-.myButton:hover {
-    background-color:#000000;
+audio { 
+    width: 300px; 
+    box-shadow: 5px 5px 20px rgba(170, 169, 169, 0.4);
+    border-radius: 90px;
+    transform: scale(1.05);
+  }
+
+input[type=range][orient=vertical]
+{
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
 }
 
-.myButton:active {
-    position:relative;
-    top:1px;
+.slidecontainer {
+  width: 22%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: blue;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: black;
+  cursor: pointer;
 }
