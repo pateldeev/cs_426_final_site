@@ -63,7 +63,7 @@ body {
     word-wrap: break-word;
 	width:240px;
  	text-align:center;
-	margin-left: 40px
+	
 
 }
 
@@ -88,6 +88,13 @@ body {
 
 .p3 {
     font-family: "Lucida Console", "Courier New", monospace;
+}
+
+#helpText {
+                width: auto;
+                height: auto;
+				font-family: Arial;
+                
 }
 
 h1, h2 {
