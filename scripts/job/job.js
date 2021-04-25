@@ -138,7 +138,7 @@ function upload_result(result_fn) {
                     } else {
                         alert('Failed to upload result: TimeOut! Please wait a couple minutes and refresh page.');
                     }
-                }, 5000);
+                }, 7500);
             }, 'json');
 }
 

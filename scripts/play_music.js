@@ -12,15 +12,14 @@ function set_player_src() {
 }
 
 function post_to_twitter(tweet) {
-
     const urlParams = new URLSearchParams(window.location.search);
-    var fn = urlParams.getAll('fn');
+    const fn = urlParams.getAll('fn');
     $.get('https://98.182.226.187:3000/twitter_verify_start',
-            {fn: fn,
-                post_msg: tweet}, function (data) {
-        setTimeout(function () {
-            window.location.href = ('https://98.182.226.187:3000/twitter_verify_complete');
-        }, 1000);
+            {fn: fn, post_msg: tweet},
+            function (data) {
+                setTimeout(function () {
+                    window.location.href = ('https://98.182.226.187:3000/twitter_verify_complete');
+                }, 1000);
 
-    }, 'text');
+            }, 'text');
 }
