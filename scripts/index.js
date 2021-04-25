@@ -13,3 +13,12 @@ function sound_cloud_embed_html(track_url, ele) {
         ele.innerHTML = oEmbed['html'];
     });
 }
+
+function ShowHelpText() {
+    var x = document.getElementById("helpText");
+    if (x.style.display === "none") {
+        x.style.display = "initial";
+    } else {
+        x.style.display = "none";
+    }
+}

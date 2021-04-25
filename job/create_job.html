@@ -12,7 +12,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
         <link rel="manifest" href="/favicon/site.webmanifest">
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
         <title id="page_title">Create Job: </title>
         <link rel="stylesheet" href="create_job.css">
@@ -40,14 +40,18 @@
                     <label> User: </label> 
                     <input id="create_form_user"  type="text" name="user" required readonly/>
                     <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<div style="position: relative;">
-                    	<input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
-					 	<button type="button" onclick="HelpButton()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
-						
-                	</div>
-					 <div id="helpText" style="display: none;">
-                    		 &nbsp; &nbsp; Supported file types: midi
-                		</div>
+                    <div style="position: relative;">
+                        <input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
+                        <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
+
+                    </div>
+                    <div id="helpText" style="display: none;">
+                        &nbsp; &nbsp; Choose songs to train the model. 
+                        <br>
+                        &nbsp; &nbsp; Supported file types: .midi, .mp3, .wav.
+                        <br>
+                         &nbsp; &nbsp;
+                    </div>
                 </form>
                 <a id="existing_jobs_link" class ="myButton" href="existing_jobs.html?user=">Existing Jobs</a>
             </div>
@@ -55,14 +59,6 @@
         <br><br>
         <script>
             validate_user();
-			function HelpButton() {
-        	var x = document.getElementById("helpText");
-        	if (x.style.display === "none") {
-            	x.style.display = "initial";
-        	} else {
-            	x.style.display = "none";
-        	}
-    		}
         </script>
     </body>
 </html>

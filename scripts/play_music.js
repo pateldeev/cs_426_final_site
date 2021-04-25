@@ -23,3 +23,9 @@ function post_to_twitter(tweet) {
 
             }, 'text');
 }
+
+function twitter_textbox() {
+    var userTweet = document.getElementById("tweet").value;
+    userTweet += " (" + window.location.href + ")";
+    post_to_twitter(userTweet);
+}

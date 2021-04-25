@@ -21,7 +21,6 @@
         <script type="text/javascript" src="scripts/index.js"></script>
     </head>
     <body>
-
         <div class="centered">
             <div class="child">
                 <img src="logopng.png" style="width:225px;height:275px;">
@@ -33,7 +32,7 @@
                 <a href="https://projectmusicai.wordpress.com/about/" class="myButton">Learn more about MusicAI</a>
                 <div style="position: relative;">
                     <a href="https://98.182.226.187:99/local/accept_certificate.html" class="myButton">Verify Connection</a>
-                    <button type="button" onclick="HelpButton()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
+                    <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
                 </div>
 
                 <div id="helpText" style="display: none;">
@@ -41,18 +40,5 @@
                 </div>
             </div>
         </div>
-
-        <br><br>
     </body>
 </html>
-
-<script>
-    function HelpButton() {
-        var x = document.getElementById("helpText");
-        if (x.style.display === "none") {
-            x.style.display = "initial";
-        } else {
-            x.style.display = "none";
-        }
-    }
-</script>

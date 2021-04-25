@@ -10,3 +10,12 @@ function validate_user() {
     document.getElementById('create_form_user').value = usr;
     document.getElementById('existing_jobs_link').href += usr;
 }
+
+function ShowHelpText() {
+    var x = document.getElementById("helpText");
+    if (x.style.display === "none") {
+        x.style.display = "initial";
+    } else {
+        x.style.display = "none";
+    }
+}

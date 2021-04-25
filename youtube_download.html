@@ -22,26 +22,20 @@
     </head>
 
     <body>
-		<div class="centered">
-        <div class="child">
-        <a href="../login/login.php">
-		<img src="logopng.png" style="width:400px;height:500px;">
-        </a>
-        <h1 style="font-size:30px;">YouTube Downloader</h1>
-        <input class='submissionfield' id='youtube_link' placeholder='Enter YouTube Link'>
-        <!--<select class='opt'>-->
-        <option value='mp3'></option>
-		
-		
-		
-       <!--</select>-->
-		<br><br>
-        <button onclick="submit_download_request();" id='submit_download_request' class= 'myButton' >Download</button>
-		</div>
-		</div>
-		
+        <div class="centered">
+            <div class="child">
+                <a href="../login/login.php">
+                    <img src="logopng.png" style="width:400px;height:500px;">
+                </a>
+                <h1 style="font-size:30px;">YouTube Downloader</h1>
+                <input class='submissionfield' id='youtube_link' placeholder='Enter YouTube Link'>
+                <option value='mp3'></option>
+                <br><br>
+                <button onclick="submit_download_request();" id='submit_download_request' class= 'myButton' >Download</button>
+            </div>
+        </div>
+
         <br><br>
         <p id='download_status' hidden>Downloading! Please wait!</p>
-
     </body>
 </html>

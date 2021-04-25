@@ -58,18 +58,18 @@ h1, h2 {
 }
 
 #helpText {
-                width: auto;
-                height: auto;
-				font-family: Arial;
-                
+    width: auto;
+    height: auto;
+    font-family: Arial;
+
 }
 .inlineDiv{
-margin-left:2rem;
+    margin-left:2rem;
 }
 
 .submissionfield { 
-	width: 300px; 
-	border: 1px 
-	solid #999999; 
-	padding: 5px; 
+    width: 300px; 
+    border: 1px
+        solid #999999; 
+    padding: 5px; 
 }
