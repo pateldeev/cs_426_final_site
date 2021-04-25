@@ -12,6 +12,7 @@
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
         <link rel="manifest" href="/favicon/site.webmanifest">
         <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
         <title id="page_title">Create Job: </title>
         <link rel="stylesheet" href="create_job.css">
@@ -31,7 +32,7 @@
         </div>
         <div class="centered">
             <div class="child">
-                <h1>Music Generation: Input Midi files to generate your song.</h1>
+                <h1>Music Generation: Select input songs to train the model and generate new songs.</h1>
                 <form method="POST" action="https://98.182.226.187:99/local/local_save_input.php" enctype="multipart/form-data">
                     <p class="p2"> <label> Choose input files: </label> </p>
                     <input type="file" name="file[]" multiple required/>
@@ -39,16 +40,29 @@
                     <label> User: </label> 
                     <input id="create_form_user"  type="text" name="user" required readonly/>
                     <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-                    <input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
+					<div style="position: relative;">
+                    	<input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
+					 	<button type="button" onclick="HelpButton()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
+						
+                	</div>
+					 <div id="helpText" style="display: none;">
+                    		 &nbsp; &nbsp; Supported file types: midi
+                		</div>
                 </form>
                 <a id="existing_jobs_link" class ="myButton" href="existing_jobs.html?user=">Existing Jobs</a>
             </div>
         </div>
         <br><br>
-        <a href="../login/login.php">User Home</a>
         <script>
             validate_user();
+			function HelpButton() {
+        	var x = document.getElementById("helpText");
+        	if (x.style.display === "none") {
+            	x.style.display = "initial";
+        	} else {
+            	x.style.display = "none";
+        	}
+    		}
         </script>
     </body>
 </html>
