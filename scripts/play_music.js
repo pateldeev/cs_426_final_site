@@ -16,7 +16,6 @@ function init_page() {
         clearregions: document.getElementById("btn-clearregions"),
         mute: document.getElementById("btn-mute"),
         unmute: document.getElementById("btn-unmute"),
-        download: document.getElementById("btn-download"),
         micon: document.getElementById("btn-micon"),
         micoff: document.getElementById("btn-micoff"),
     };
@@ -113,24 +112,6 @@ function init_page() {
         Spectrum.seekTo(currentProgress);
 
     }, false);
-
-    // Get Download name
-    function othername() {
-
-        var input = document.getElementById("userInput").value;
-        document.getElementById("filename").innerHTML =
-                "Current File Name: " + input;
-        buttons.download.disabled = false;
-        const urlParams = new URLSearchParams(window.location.search);
-        var fn = urlParams.getAll('fn');
-        const fn_prefix = 'results/';
-        fn = fn_prefix + fn[0];
-        console.log(fn);
-        var ds = document.getElementById("download_song");
-        ds.setAttribute('download', input + ".mp3");
-        ds.href = fn;
-
-    }
 
     // Dropdown Controls
     $(document).ready(function () {
@@ -527,4 +508,21 @@ function init_twitter_link() {
     const urlParams = new URLSearchParams(window.location.search);
     const fn = urlParams.getAll('fn');
     document.getElementById("twitter_post_link").href += ("?fn=" + fn);
+}
+
+// Get Download name
+function othername() {
+    var input = document.getElementById("userInput").value;
+    document.getElementById("filename").innerHTML =
+            "Current File Name: " + input;
+    document.getElementById("btn-download").disabled = false;
+    const urlParams = new URLSearchParams(window.location.search);
+    var fn = urlParams.getAll('fn');
+    const fn_prefix = 'results/';
+    fn = fn_prefix + fn[0];
+    console.log(fn);
+    var ds = document.getElementById("download_song");
+    ds.setAttribute('download', input + ".mp3");
+    ds.href = fn;
+
 }

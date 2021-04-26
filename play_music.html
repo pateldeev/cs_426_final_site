@@ -30,137 +30,132 @@
         <link rel="stylesheet" href="play_music.css">
     </head>
     <body>
-
-        <!--Order in which wavesurfer objects are placed-->
-        <div id="waveform"></div>
-        <div id="audio-spectrum"></div>
-        <div id="wave-timeline"></div>
-        <br>
-
-        <!--Audio Controls-->
-    <center>
-        <input class = "button" type="button" id="btn-play" value="Play" />
-        <input class = "button" type="button" id="btn-pause" value="Pause"/>
-        <input class = "button" type="button" id="btn-stop" value="Stop"/>
-        <input class = "button" type="button" id="btn-mute" value="Mute" disabled="disabled"/>
-        <input class = "button" type="button" id="btn-unmute" value="Unmute" disabled="disabled"/>
-    </center>
-
-    <!--Volume Controls and Dropdown-->
-    <center>
-        <div class= "slidecontainer">
-            Volume:<br/>
-            <input id="volume" type="range" class= "slider" min="0" max="1" value="1" step="0.1">
-        </div>
-
-        <select id='dropdown'>
-            <option value="0">Select</option>
-            <option value="1">Region Controls</option>
-            <option value="2">Mic Controls</option>
-            <option value="3">Equalizer</option>
-            <option value="4">Download</option>
-        </select>
-    </center>
-
-    <!--Region Controls-->
-    <center>
-        <div style="display: none;" id='regioncontrols'><br/>
-            <h1>Region Controls:</h1>
-            <input class = "button" type="button" id="btn-addregions" value="Add Regions"/>
-            <input class = "button" type="button" id="btn-clearregions" value="Clear Regions"/>
+        <div class="centered_stuff">
+            <!--Order in which wavesurfer objects are placed-->
+            <div id="waveform"></div>
+            <div id="audio-spectrum"></div>
+            <div id="wave-timeline"></div>
             <br>
-            <br>
-        </div> 
 
-        <!--Mic Controls-->
-        <div style='display:none;' id='miccontrols'><br/>
-            <h1>Mic Controls:</h1>
-            <input class = "button" type="button" id="btn-micon" value="MicOn" disabled="disabled"/>
-            <input class = "button" type="button" id="btn-micoff" value="MicOff" disabled="disabled"/>
-            <div class="wrapper">
+            <!--Audio Controls-->
+            <input class = "button" type="button" id="btn-play" value="Play" />
+            <input class = "button" type="button" id="btn-pause" value="Pause"/>
+            <input class = "button" type="button" id="btn-stop" value="Stop"/>
+            <input class = "button" type="button" id="btn-mute" value="Mute" disabled="disabled"/>
+            <input class = "button" type="button" id="btn-unmute" value="Unmute" disabled="disabled"/>
 
-                <div class="audio-wrapper">
-                    <audio src="" controls class="js-audio audio"></audio>
+            <!--Volume Controls and Dropdown-->
+            <br><br>
+            Volume:
+            <input id="volume" type="range" class= "slider" min="0" max="1" value="1" step="0.1" style="width:25%">
+            <br><br>
+
+            <select id='dropdown'>
+                <option value="0">Select</option>
+                <option value="1">Region Controls</option>
+                <option value="2">Mic Controls</option>
+                <option value="3">Equalizer</option>
+                <option value="4">Download</option>
+            </select>
+
+            <!--Region Controls-->
+            <div style="display: none;" id='regioncontrols'><br/>
+                <h1>Region Controls:</h1>
+                <input class = "button" type="button" id="btn-addregions" value="Add Regions"/>
+                <input class = "button" type="button" id="btn-clearregions" value="Clear Regions"/>
+                <br>
+                <br>
+            </div> 
+
+            <!--Mic Controls-->
+            <div style='display:none;' id='miccontrols'><br/>
+                <h1>Mic Controls:</h1>
+                <input class = "button" type="button" id="btn-micon" value="MicOn" disabled="disabled"/>
+                <input class = "button" type="button" id="btn-micoff" value="MicOff" disabled="disabled"/>
+                <div class="wrapper">
+
+                    <div class="audio-wrapper">
+                        <audio src="" controls class="js-audio audio"></audio>
+                    </div>
+
+                    <div class="toolbar">
+                        <button class="js-start button button--start">Record</button>
+                        <button class="js-stop button button--stop">Stop Recording</button>
+                    </div>
                 </div>
+            </div>
 
-                <div class="toolbar">
-                    <button class="js-start button button--start">Record</button>
-                    <button class="js-stop button button--stop">Stop Recording</button>
-                </div>
+            <!--Equalizer Controls-->
+            <div class = equal style='display:none;' id='equalizercontrols'><br/>
+
+                <h1>Equalizer Controls:</h1>
+                <input orient="vertical" id=range1 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range2 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range3 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range4 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range5 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range6 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range7 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range8 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range9 type="range" min="-25" max="25" value="0">
+                <input orient="vertical" id=range10 type="range" min="-25" max="25" value="0">    
+
+            </div>
+
+            <!--Download Controls-->
+            <div style='display:none;' id='downloadfile'><br/>
+                <h1>Download File:</h1>
+                <p>Name the file that will be downloaded (.mp3 is already included):</p>
+                <form id="form" onsubmit="return false;">
+                    <input class= "textborder" type="text" id="userInput" /> <br>
+                    <input class = "button" type="button" value = "Submit File Name" onclick="othername();" />
+                    <p id="filename"></p>
+                </form>
+                <br>
+
+                <a id= "download_song" >
+                    <input class = "button" type="button" id="btn-download" value="Download File" disabled="disabled"/>
+                </a>
             </div>
         </div>
 
-        <!--Equalizer Controls-->
-        <div class = equal style='display:none;' id='equalizercontrols'><br/>
-
-            <h1>Equalizer Controls:</h1>
-            <input orient="vertical" id=range1 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range2 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range3 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range4 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range5 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range6 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range7 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range8 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range9 type="range" min="-25" max="25" value="0">
-            <input orient="vertical" id=range10 type="range" min="-25" max="25" value="0">    
-
-        </div>
-
-        <!--Download Controls-->
-        <div style='display:none;' id='downloadfile'><br/>
-            <h1>Download File:</h1>
-            <p>Name the file that will be downloaded (.mp3 is already included):</p>
-            <form id="form" onsubmit="return false;">
-                <input class= "textborder" type="text" id="userInput" /> <br>
-                <input class = "button" type="button" value = "Submit File Name" onclick="othername();" />
-                <p id="filename"></p>
-            </form>
-            <br>
-
-            <a id= "download_song" >
-                <input class = "button" type="button" id="btn-download" value="Download File" disabled="disabled"/>
+        <br>
+        <br>
+        <!--Pictures-->
+        <div class = "redditabsolute">
+            <a href="https://www.reddit.com/r/musicai/">
+                <img alt="reddit" src="images/reddit.png"
+                     width="70" height="70">
+            </a>
+        </div>      
+        <div class = "musicaiabsolute">
+            <a href="login/login.php">
+                <img alt="musicai" src="images/musicai.png"
+                     width="90" height="90">
             </a>
         </div>
-    </center>
-
-    <br>
-    <br>
-    <!--Pictures-->
-    <div class = "redditabsolute">
-        <a href="https://www.reddit.com/r/musicai/">
-            <img alt="reddit" src="images/reddit.png"
-                 width="70" height="70">
-        </a>
-    </div>      
-    <div class = "musicaiabsolute">
-        <a href="login/login.php">
-            <img alt="musicai" src="images/musicai.png"
-                 width="90" height="90">
-        </a>
-    </div>
-    <div class = "twitterabsolute">
-        <a href="twitter/twitter_post.html" id="twitter_post_link">
-            <img alt="Twitter" src="images/Twitter.png"
-                 width="90" height="70">
-        </a>
-    </div>
-    <div class = "youtubeabsolute">
-        <a href="youtube/youtube_download.html">
-            <img alt="Youtube" src="images/Youtube.png"
-                 width="80" height="80">
-        </a>
-    </div>
-    <div class = "aboutabsolute">
-        <a href="https://projectmusicai.wordpress.com/">
-            <img alt="musicai" src="images/about.ico"
-                 width="65" height="65">
-        </a>
-    </div>
-    <script>
-        init_page();
-        init_twitter_link();
-    </script>
-</body>
+        <div class = "twitterabsolute">
+            <a href="twitter/twitter_post.html" id="twitter_post_link">
+                <img alt="Twitter" src="images/Twitter.png"
+                     width="90" height="70">
+            </a>
+        </div>
+        <div class = "youtubeabsolute">
+            <a href="youtube/youtube_download.html">
+                <img alt="Youtube" src="images/Youtube.png"
+                     width="80" height="80">
+            </a>
+        </div>
+        <div class = "aboutabsolute">
+            <a href="https://projectmusicai.wordpress.com/">
+                <img alt="musicai" src="images/about.ico"
+                     width="65" height="65">
+            </a>
+        </div>
+        <script>
+            init_page();
+            init_twitter_link();
+        </script>
+    </body>
 
 </html>

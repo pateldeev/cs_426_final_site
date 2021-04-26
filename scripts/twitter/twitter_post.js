@@ -1,6 +1,8 @@
 function twitter_post() {
     var tweet_msg = document.getElementById("tweet").value;
-    tweet_msg += " (" + window.location.href + ")";
+    const urlParams = new URLSearchParams(window.location.search);
+    var fn = urlParams.getAll('fn');
+    tweet_msg += " (https:://musicai.app/play_music.html?fn=" + fn + ")";
 
     const urlParams = new URLSearchParams(window.location.search);
     const fn = urlParams.getAll('fn');

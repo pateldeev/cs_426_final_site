@@ -13,6 +13,10 @@ body {
     align-items: center;
 }
 
+.centered_stuff {
+    text-align: center;
+}
+
 h1 {
     color: black;
     font-family:'Montserrat',sans-serif;
@@ -83,10 +87,6 @@ input[type=range][orient=vertical]
 {
     writing-mode: bt-lr; /* IE */
     -webkit-appearance: slider-vertical; /* WebKit */
-}
-
-.slidecontainer {
-    width: 22%;
 }
 
 .slider {
