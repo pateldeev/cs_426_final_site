@@ -107,9 +107,11 @@ function init_page() {
     window.addEventListener("resize", function () {
         var currentProgress = Spectrum.getCurrentTime() / Spectrum.getDuration();
 
-        Spectrum.empty();
-        Spectrum.drawBuffer();
-        Spectrum.seekTo(currentProgress);
+        if (!isNaN(currentProgress)) {
+            Spectrum.empty();
+            Spectrum.drawBuffer();
+            Spectrum.seekTo(currentProgress);
+        }
 
     }, false);
 
@@ -244,7 +246,7 @@ function init_page() {
 
         // Attaches the filters to the range sliders for each one
         filters.forEach(function (filter) {
-            if (filter.id = '1')
+            if (filter.id == '1')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -253,7 +255,7 @@ function init_page() {
                 sliders.slider1.addEventListener('change', onChange);
             }
 
-            if (filter.id = '2')
+            if (filter.id == '2')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -263,7 +265,7 @@ function init_page() {
                 sliders.slider2.addEventListener('change', onChange);
             }
 
-            if (filter.id = '3')
+            if (filter.id == '3')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -273,7 +275,7 @@ function init_page() {
                 sliders.slider3.addEventListener('change', onChange);
             }
 
-            if (filter.id = '4')
+            if (filter.id == '4')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -283,7 +285,7 @@ function init_page() {
                 sliders.slider4.addEventListener('change', onChange);
             }
 
-            if (filter.id = '5')
+            if (filter.id == '5')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -293,7 +295,7 @@ function init_page() {
                 sliders.slider5.addEventListener('change', onChange);
             }
 
-            if (filter.id = '6')
+            if (filter.id == '6')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -303,7 +305,7 @@ function init_page() {
                 sliders.slider6.addEventListener('change', onChange);
             }
 
-            if (filter.id = '7')
+            if (filter.id == '7')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -313,7 +315,7 @@ function init_page() {
                 sliders.slider7.addEventListener('change', onChange);
             }
 
-            if (filter.id = '8')
+            if (filter.id == '8')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -323,7 +325,7 @@ function init_page() {
                 sliders.slider8.addEventListener('change', onChange);
             }
 
-            if (filter.id = '9')
+            if (filter.id == '9')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -333,7 +335,7 @@ function init_page() {
                 sliders.slider9.addEventListener('change', onChange);
             }
 
-            if (filter.id = '10')
+            if (filter.id == '10')
             {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
@@ -499,9 +501,6 @@ function init_page() {
 
     //loads the song from musicai into the musicplayer
     Spectrum.load(fn);
-
-
-    // End of JS Portion
 }
 
 function init_twitter_link() {
