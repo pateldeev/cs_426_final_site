@@ -28,5 +28,6 @@ body {
 
 .centerTrainingOutput {
 	right: 785px;
+	top: 400px;
 	position: absolute;
 }
