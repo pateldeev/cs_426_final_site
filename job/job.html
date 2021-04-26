@@ -19,6 +19,13 @@
         <script type="text/javascript" src="/scripts/job/job.js"></script>
     </head>
     <body>
+		<a href='../login/logout.php' id='logout_link'>Log out</a> <br>
+		<a href="../login/login.php" id = 'home_link' >User Home</a>
+		<div class="verticalhorizontal">
+			<a href="../login/login.php">
+    		<img src="../images/logopng.png" style="width:310px;height:400px;">
+			</a>
+		</div>
         <label> Job: </label>
         <input id="label_job" type="text" readonly/>
         <br><br>
@@ -44,12 +51,11 @@
         <br><br>
         <button id="delete_button" onclick="delete_job();">Delete Job</button>
         <br><br><br>
-        <a href='../login/login.php'>User home</a>
         <br><br><br>
         <table id="job_output_table">
-            <tr>
-                <th>Training Script Output</th>
-            </tr>
+            <div class="centerTrainingOutput">
+                <h1 style="font-family:Arial; font-size:25px"; >Training Script Output</h1>
+			</div>
         </table>
 
         <script>
