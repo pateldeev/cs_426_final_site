@@ -23,33 +23,33 @@ h1 {
     font-size: 20px;
 }
 
-div.redditabsolute {
-    position: absolute;
-    left: 100px;
-    bottom: 10px;
-}
-
 div.musicaiabsolute {
     position: absolute;
     left: 0px;
-    bottom: 0px;
+    bottom: -20px;
+}
+
+div.redditabsolute {
+    position: absolute;
+    left: 100px;
+    bottom: 16px;
 }
 
 div.twitterabsolute {
     position: absolute;
-    left: 180px;
-    bottom: 10px;
+    left: 170px;
+    bottom: 0px;
 }
 
 div.youtubeabsolute {
     position: absolute;
-    left: 270px;
-    bottom: 0px;
+    left: 275px;
+    bottom: 15px;
 }
 
 div.aboutabsolute {
     position: absolute;
-    left: 370px;
+    left: 450px;
     bottom: 10px;
 }
 
