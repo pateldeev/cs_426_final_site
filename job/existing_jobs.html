@@ -21,7 +21,8 @@
         <script type="text/javascript" src="/scripts/job/existing_jobs.js"></script>
     </head>
     <body>
-        <a href='../login/logout.php' id='logout_link'>Log out</a>
+        <a href='../login/logout.php' id='logout_link'>Log out</a> <br>
+		<a href="../login/login.php" id = 'home_link' >User Home</a>
         <div class="centered">
             <div class="child">
                 <a href="../login/login.php">
@@ -57,7 +58,6 @@
             </div>
         </div>
         <br><br>
-        <a href="../login/login.php">User Home</a>
         <script>
             const user_name = validate_user();
             populate_jobs_table(user_name);
