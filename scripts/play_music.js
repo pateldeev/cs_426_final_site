@@ -1,3 +1,4 @@
+// Initializes page.
 function init_page() {
     // Internal Javascript Code
 
@@ -122,40 +123,35 @@ function init_page() {
         $("#equalizercontrols").hide();
         $("#downloadfile").hide();
         $('#dropdown').on('change', function () {
-            if (this.value == '0')
-            {
+            if (this.value == '0') {
                 $("#regioncontrols").hide();
                 $("#miccontrols").hide();
                 $("#equalizercontrols").hide();
                 $("#downloadfile").hide();
             }
 
-            if (this.value == '1')
-            {
+            if (this.value == '1') {
                 $("#regioncontrols").show();
                 $("#miccontrols").hide();
                 $("#equalizercontrols").hide();
                 $("#downloadfile").hide();
             }
 
-            if (this.value == '2')
-            {
+            if (this.value == '2') {
                 $("#regioncontrols").hide();
                 $("#miccontrols").show();
                 $("#equalizercontrols").hide();
                 $("#downloadfile").hide();
             }
 
-            if (this.value == '3')
-            {
+            if (this.value == '3') {
                 $("#regioncontrols").hide();
                 $("#miccontrols").hide();
                 $("#equalizercontrols").show();
                 $("#downloadfile").hide();
             }
 
-            if (this.value == '4')
-            {
+            if (this.value == '4') {
                 $("#regioncontrols").hide();
                 $("#miccontrols").hide();
                 $("#equalizercontrols").hide();
@@ -246,8 +242,7 @@ function init_page() {
 
         // Attaches the filters to the range sliders for each one
         filters.forEach(function (filter) {
-            if (filter.id == '1')
-            {
+            if (filter.id == '1') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -255,8 +250,7 @@ function init_page() {
                 sliders.slider1.addEventListener('change', onChange);
             }
 
-            if (filter.id == '2')
-            {
+            if (filter.id == '2') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -265,8 +259,7 @@ function init_page() {
                 sliders.slider2.addEventListener('change', onChange);
             }
 
-            if (filter.id == '3')
-            {
+            if (filter.id == '3') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -275,8 +268,7 @@ function init_page() {
                 sliders.slider3.addEventListener('change', onChange);
             }
 
-            if (filter.id == '4')
-            {
+            if (filter.id == '4') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -285,8 +277,7 @@ function init_page() {
                 sliders.slider4.addEventListener('change', onChange);
             }
 
-            if (filter.id == '5')
-            {
+            if (filter.id == '5') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -295,8 +286,7 @@ function init_page() {
                 sliders.slider5.addEventListener('change', onChange);
             }
 
-            if (filter.id == '6')
-            {
+            if (filter.id == '6') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -305,8 +295,7 @@ function init_page() {
                 sliders.slider6.addEventListener('change', onChange);
             }
 
-            if (filter.id == '7')
-            {
+            if (filter.id == '7') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -315,8 +304,7 @@ function init_page() {
                 sliders.slider7.addEventListener('change', onChange);
             }
 
-            if (filter.id == '8')
-            {
+            if (filter.id == '8') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -325,8 +313,7 @@ function init_page() {
                 sliders.slider8.addEventListener('change', onChange);
             }
 
-            if (filter.id == '9')
-            {
+            if (filter.id == '9') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -335,8 +322,7 @@ function init_page() {
                 sliders.slider9.addEventListener('change', onChange);
             }
 
-            if (filter.id == '10')
-            {
+            if (filter.id == '10') {
                 var onChange = function (a) {
                     filter.gain.value = ~~a.target.value;
                 };
@@ -431,13 +417,13 @@ function init_page() {
         navigator.mediaDevices.getUserMedia({
             audio: true
         })
-                .then(stream => {
-                    recorder = new MediaRecorder(stream);
+            .then(stream => {
+                recorder = new MediaRecorder(stream);
 
-                    // If user wants to add more to recording they can press record again
-                    recorder.ondataavailable = saveChunkToRecording;
-                    recorder.onstop = saveRecording;
-                });
+                // If user wants to add more to recording they can press record again
+                recorder.ondataavailable = saveChunkToRecording;
+                recorder.onstop = saveRecording;
+            });
     });
 
     // stop the microphone
@@ -499,21 +485,22 @@ function init_page() {
     const fn_prefix = 'results/';
     fn = fn_prefix + fn[0];
 
-    //loads the song from musicai into the musicplayer
+    // Loads the song from musicAi into the music player.
     Spectrum.load(fn);
 }
 
+// Initializes the twitter post link.
 function init_twitter_link() {
     const urlParams = new URLSearchParams(window.location.search);
     const fn = urlParams.getAll('fn');
     document.getElementById("twitter_post_link").href += ("?fn=" + fn);
 }
 
-// Get Download name
+// Get name of file set by user for download.
 function othername() {
     var input = document.getElementById("userInput").value;
     document.getElementById("filename").innerHTML =
-            "Current File Name: " + input;
+        "Current File Name: " + input;
     document.getElementById("btn-download").disabled = false;
     const urlParams = new URLSearchParams(window.location.search);
     var fn = urlParams.getAll('fn');

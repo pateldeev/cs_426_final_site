@@ -1,3 +1,6 @@
+<!-- Page to allow users to login to website. -->
+
+
 <?php
 // Initialize the session.
 session_start();

@@ -1,3 +1,4 @@
+// Validate user.
 function validate_user() {
     const urlParams = new URLSearchParams(window.location.search);
     var usr = urlParams.getAll('user');

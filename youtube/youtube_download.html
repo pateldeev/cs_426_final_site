@@ -1,39 +1,43 @@
+<!-- Page allow users to download music from YouTube. -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
 
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<head>
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-        <title id="page_title">YouTube Download</title>
-        <link rel="stylesheet" href="youtube_download.css" type="text/css"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="../scripts/youtube/youtube_download.js"></script>
-    </head>
+    <title id="page_title">YouTube Download</title>
+    <link rel="stylesheet" href="youtube_download.css" type="text/css" />
 
-    <body>
-        <div class="centered">
-            <div class="child">
-                <a href="../login/login.php">
-                    <img src="../images/logopng.png" style="width:400px;height:500px;">
-                </a>
-                <h1 style="font-size:30px;">YouTube Downloader</h1>
-                <input class='submissionfield' id='youtube_link' placeholder='Enter YouTube Link'>
-                <option value='mp3'></option>
-                <br><br>
-                <button onclick="submit_download_request();" id='submit_download_request' class= 'myButton' >Download</button>
-                <br><br>
-                <p id='download_status' hidden>Download request sent! Please wait!</p>
-            </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="../scripts/youtube/youtube_download.js"></script>
+</head>
+
+<body>
+    <div class="centered">
+        <div class="child">
+            <a href="../login/login.php">
+                <img src="../images/logopng.png" style="width:400px;height:500px;">
+            </a>
+            <h1 style="font-size:30px;">YouTube Downloader</h1>
+            <input class='submissionfield' id='youtube_link' placeholder='Enter YouTube Link'>
+            <option value='mp3'></option>
+            <br><br>
+            <button onclick="submit_download_request();" id='submit_download_request' class='myButton'>Download</button>
+            <br><br>
+            <p id='download_status' hidden>Download request sent! Please wait!</p>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

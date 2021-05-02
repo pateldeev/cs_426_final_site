@@ -1,64 +1,72 @@
+<!-- Page to allow users to create a training job. -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
 
-        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<head>
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-        <title id="page_title">Create Job: </title>
-        <link rel="stylesheet" href="create_job.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="/scripts/job/create_job.js"></script>
-    </head>
-    <body>
-        <a href='../login/logout.php' id='logout_link'>Log out</a>
+    <title id="page_title">Create Job: </title>
+    <link rel="stylesheet" href="create_job.css">
 
-        <div class="centered">
-            <div class="child">
-                <a href="../login/login.php"> 
-                    <img src="../images/logopng.png" style="width:450px;height:550px;">
-                </a>
-            </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="/scripts/job/create_job.js"></script>
+</head>
+
+<body>
+    <a href='../login/logout.php' id='logout_link'>Log out</a>
+
+    <div class="centered">
+        <div class="child">
+            <a href="../login/login.php">
+                <img src="../images/logopng.png" style="width:450px;height:550px;">
+            </a>
         </div>
-        <div class="centered">
-            <div class="child">
-                <h1>Music Generation: Select input songs to train the model and generate new songs.</h1>
-                <form method="POST" action="https://98.182.226.187:99/local/local_save_input.php" enctype="multipart/form-data">
-                    <p class="p2"> <label> Choose input files: </label> </p>
-                    <input type="file" name="file[]" multiple required/>
-                    <br><br>
-                    <label> User: </label> 
-                    <input id="create_form_user"  type="text" name="user" required readonly/>
-                    <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <div style="position: relative;">
-                        <input type="submit" class ="myFormButton" name="submit" value="Upload for training" />
-                        <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
+    </div>
+    <div class="centered">
+        <div class="child">
+            <h1>Music Generation: Select input songs to train the model and generate new songs.</h1>
+            <form method="POST" action="https://98.182.226.187:99/local/local_save_input.php"
+                enctype="multipart/form-data">
+                <p class="p2"> <label> Choose input files: </label> </p>
+                <input type="file" name="file[]" multiple required />
+                <br><br>
+                <label> User: </label>
+                <input id="create_form_user" type="text" name="user" required readonly />
+                <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <div style="position: relative;">
+                    <input type="submit" class="myFormButton" name="submit" value="Upload for training" />
+                    <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i
+                            class="fa fa-question-circle"></i></button>
 
-                    </div>
-                    <div id="helpText" style="display: none;">
-                        &nbsp; &nbsp; Choose songs to train the model. 
-                        <br>
-                        &nbsp; &nbsp; Supported file types: .midi, .mp3, .wav.
-                        <br>
-                         &nbsp; &nbsp;
-                    </div>
-                </form>
-                <a id="existing_jobs_link" class ="myButton" href="existing_jobs.html?user=">Existing Jobs</a>
-            </div>
+                </div>
+                <div id="helpText" style="display: none;">
+                    &nbsp; &nbsp; Choose songs to train the model.
+                    <br>
+                    &nbsp; &nbsp; Supported file types: .midi, .mp3, .wav.
+                    <br>
+                    &nbsp; &nbsp;
+                </div>
+            </form>
+            <a id="existing_jobs_link" class="myButton" href="existing_jobs.html?user=">Existing Jobs</a>
         </div>
-        <br><br>
-        <script>
-            validate_user();
-        </script>
-    </body>
+    </div>
+    <br><br>
+    <script>
+        // Validate user account.
+        validate_user();
+    </script>
+</body>
+
 </html>

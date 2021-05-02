@@ -1,3 +1,6 @@
+<!-- Page to log users out of website. -->
+
+
 <?php
 
 require_once "../db/db_connection.php";

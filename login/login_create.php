@@ -1,3 +1,5 @@
+<!-- Page to allow users to create an account. -->
+
 <?php
 // Start database connection.
 require_once "../db/db_connection.php";

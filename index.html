@@ -1,44 +1,51 @@
+<!-- Main index page for website. -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <title>Home</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="index.css">
+    <title>Home</title>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
-    </head>
-    <body>
-        <div class="centered">
-            <div class="child">
-                <img src="images/logopng.png" style="width:225px;height:275px;">
-                <h1>
-                    Thanks for visiting musicAi today!<br>
-                </h1>
-                <a href="/login/login.php?nocache=true" class="myButton">Accept Terms & Enter Application</a>
-                <a href="https://projectmusicai.wordpress.com/112-2/" class="myButton">Terms and Conditions</a>
-                <a href="https://projectmusicai.wordpress.com/about/" class="myButton">Learn more about MusicAI</a>
-                <div style="position: relative;">
-                    <a href="https://98.182.226.187:99/local/accept_certificate.html" class="myButton">Verify Connection</a>
-                    <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i class="fa fa-question-circle"></i></button>
-                </div>
+    <link rel="stylesheet" href="index.css">
 
-                <div id="helpText" style="display: none;">
-                    For everything to work smoothly, please click "Verify Connection" at least one time per device to ensure a proper connection to our AI backend is established.
-                </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="https://connect.soundcloud.com/sdk/sdk-3.3.2.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+</head>
+
+<body>
+    <div class="centered">
+        <div class="child">
+            <img src="images/logopng.png" style="width:225px;height:275px;">
+            <h1>
+                Thanks for visiting musicAi today!<br>
+            </h1>
+            <a href="/login/login.php?nocache=true" class="myButton">Accept Terms & Enter Application</a>
+            <a href="https://projectmusicai.wordpress.com/112-2/" class="myButton">Terms and Conditions</a>
+            <a href="https://projectmusicai.wordpress.com/about/" class="myButton">Learn more about MusicAI</a>
+            <div style="position: relative;">
+                <a href="https://98.182.226.187:99/local/accept_certificate.html" class="myButton">Verify Connection</a>
+                <button type="button" onclick="ShowHelpText()" style="position: absolute;top: 30%;"><i
+                        class="fa fa-question-circle"></i></button>
+            </div>
+
+            <div id="helpText" style="display: none;">
+                For everything to work smoothly, please click "Verify Connection" at least one time per device to ensure
+                a proper connection to our AI backend is established.
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

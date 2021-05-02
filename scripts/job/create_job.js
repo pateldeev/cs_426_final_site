@@ -1,3 +1,4 @@
+// Validate user account.
 function validate_user() {
     const urlParams = new URLSearchParams(window.location.search);
     var usr = urlParams.getAll('user');
@@ -11,6 +12,7 @@ function validate_user() {
     document.getElementById('existing_jobs_link').href += usr;
 }
 
+// Show help text.
 function ShowHelpText() {
     var x = document.getElementById("helpText");
     if (x.style.display === "none") {

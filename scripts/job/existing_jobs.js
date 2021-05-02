@@ -1,3 +1,4 @@
+// Validate user account.
 function validate_user() {
     const urlParams = new URLSearchParams(window.location.search);
     var usr = urlParams.getAll('user');
@@ -12,23 +13,25 @@ function validate_user() {
     return usr;
 }
 
+// Populate jobs table.
 function populate_jobs_table(usr_name) {
-    $.get('https://98.182.226.187:3000/jobs_associated_to_user', {user: usr_name},
-            function (data) {
-                if(data['err']){
-                    alert('NodeJS error in getting jobs associated with user: ' + data['err_msg']);
-                    return;
-                }
-                
-                for (let j of data['jobs']){
-                    var r = document.getElementById("existing_jobs_table").insertRow();
-                    var c;
-                    c = r.insertCell();
-                    c.innerHTML = `<a href='job.html?job=${j['id']}'>${j['id']}</a>`;
-                    c = r.insertCell();
-                    c.innerHTML = j['created'];
-                    c = r.insertCell();
-                    c.innerHTML = j['status'];
-                }
-            }, 'json');
+    $.get('https://98.182.226.187:3000/jobs_associated_to_user', { user: usr_name },
+        function (data) {
+            if (data['err']) {
+                alert('NodeJS error in getting jobs associated with user: ' + data['err_msg']);
+                return;
+            }
+
+            // Add row in jobs table for each job.
+            for (let j of data['jobs']) {
+                var r = document.getElementById("existing_jobs_table").insertRow();
+                var c;
+                c = r.insertCell();
+                c.innerHTML = `<a href='job.html?job=${j['id']}'>${j['id']}</a>`;
+                c = r.insertCell();
+                c.innerHTML = j['created'];
+                c = r.insertCell();
+                c.innerHTML = j['status'];
+            }
+        }, 'json');
 }

@@ -1,79 +1,88 @@
+<!-- Page to show details of jobs. Allows users to start a job and get access to generated song -->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-        <link rel="manifest" href="/favicon/site.webmanifest">
-        <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 
-        <title id="page_title">Job: </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg">
 
-        <link rel="stylesheet" href="job.css">
+    <title id="page_title">Job: </title>
 
-        <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
-        <script type="text/javascript" src="/scripts/job/job.js"></script>
-    </head>
-    <body>
-		<a href='../login/logout.php' id='logout_link'>Log out</a> <br>
-		<a href="../login/login.php" id = 'home_link' >User Home</a>
-		<div class="verticalhorizontal">
-			<a href="../login/login.php">
-    		<img src="../images/logopng.png" style="width:310px;height:400px;">
-			</a>
-		</div>
-        <label> Job: </label>
-        <input id="label_job" type="text" readonly/>
-        <br><br>
-        <label> User: </label>
-        <input id="label_user" type="text" readonly/>
-        <br><br>
-        <label> Date Created: </label>
-        <input id="label_date" type="text" readonly size="30"/>
-        <br><br>
-        <label> Status: </label>
-        <input id="label_status" type="text" readonly/>
-        <br><br><br>
-        <div id='job_start_div' hidden>
-            <label for="start_job_epochs">Number of training epochs: </label><input type="number" id="start_job_epochs" name='start_job_epochs' min="1" max="1000" value="100">
-            <br>
-            <label for="start_job_outsize">Number of notes in output song: </label><input type="number" id="start_job_outsize" name='start_job_outsize' min="1" max="500" value="50">
-            <br>
-            <button id="start_button" onclick="start_job();">Start Job</button>
+    <link rel="stylesheet" href="job.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript" src="/scripts/job/job.js"></script>
+</head>
+
+<body>
+    <a href='../login/logout.php' id='logout_link'>Log out</a> <br>
+    <a href="../login/login.php" id='home_link'>User Home</a>
+    <div class="verticalhorizontal">
+        <a href="../login/login.php">
+            <img src="../images/logopng.png" style="width:310px;height:400px;">
+        </a>
+    </div>
+    <label> Job: </label>
+    <input id="label_job" type="text" readonly />
+    <br><br>
+    <label> User: </label>
+    <input id="label_user" type="text" readonly />
+    <br><br>
+    <label> Date Created: </label>
+    <input id="label_date" type="text" readonly size="30" />
+    <br><br>
+    <label> Status: </label>
+    <input id="label_status" type="text" readonly />
+    <br><br><br>
+    <div id='job_start_div' hidden>
+        <label for="start_job_epochs">Number of training epochs: </label><input type="number" id="start_job_epochs"
+            name='start_job_epochs' min="1" max="1000" value="100">
+        <br>
+        <label for="start_job_outsize">Number of notes in output song: </label><input type="number"
+            id="start_job_outsize" name='start_job_outsize' min="1" max="500" value="50">
+        <br>
+        <button id="start_button" onclick="start_job();">Start Job</button>
+    </div>
+    <br><br>
+    <button id="upload_result_button" hidden disabled>Upload Job Result</button>
+    <p id="uploaded_result_success" hidden> Result Uploaded: </p>
+    <br><br>
+    <button id="delete_button" onclick="delete_job();">Delete Job</button>
+    <br><br><br>
+    <br><br><br>
+    <table id="job_output_table">
+        <div class="centerTrainingOutput">
+            <h1 style="font-family:Arial; font-size:25px" ;>Training Script Output</h1>
         </div>
-        <br><br>
-        <button id="upload_result_button" hidden disabled>Upload Job Result</button>
-        <p id="uploaded_result_success" hidden> Result Uploaded: </p>
-        <br><br>
-        <button id="delete_button" onclick="delete_job();">Delete Job</button>
-        <br><br><br>
-        <br><br><br>
-        <table id="job_output_table">
-            <div class="centerTrainingOutput">
-                <h1 style="font-family:Arial; font-size:25px"; >Training Script Output</h1>
-			</div>
-        </table>
+    </table>
 
-        <script>
-            populate_job_id();
-            const status_fn = validate_job();
+    <script>
+        // Get job id and validate it.
+        populate_job_id();
+        const status_fn = validate_job();
 
-            job_status = $("#label_status").val();
-            if (!job_status) {
-                window.location.replace("../login/login.php");
-            } else if (job_status === 'Created') {
-                $("#job_start_div").show();
-            } else if (job_status === 'Done' && status_fn) {
-                handle_job_done(status_fn);
-            }
+        // Update status of job and dynamically update the rest of the page.
+        job_status = $("#label_status").val();
+        if (!job_status) {
+            window.location.replace("../login/login.php");
+        } else if (job_status === 'Created') {
+            $("#job_start_div").show();
+        } else if (job_status === 'Done' && status_fn) {
+            handle_job_done(status_fn);
+        }
 
-            if (status_fn) {
-                link_status_file(status_fn);
-            }
-        </script>
-    </body>
+        if (status_fn) {
+            link_status_file(status_fn);
+        }
+    </script>
+</body>
+
 </html>
