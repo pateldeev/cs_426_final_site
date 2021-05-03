@@ -14,16 +14,19 @@ body {
 }
 
 .centered_stuff {
+    /* Center divs */
     text-align: center;
 }
 
 h1 {
+    /* Headers used for text */
     color: black;
     font-family:'Montserrat',sans-serif;
     font-size: 20px;
 }
 
 div.musicaiabsolute {
+    
     position: absolute;
     left: 0px;
     bottom: -20px;
